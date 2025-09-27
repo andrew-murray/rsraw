@@ -1,6 +1,8 @@
 # rsraw
 
-A comprehensive Rust wrapper for the LibRaw library, providing safe and idiomatic access to raw image processing capabilities. This workspace contains two main crates that work together to provide raw image file support for Rust applications.
+A comprehensive Rust wrapper for the LibRaw library, providing safe and idiomatic access to raw image processing capabilities, works on Linux/Windows/MacOS/iOS/Android.
+
+This workspace contains two main crates that work together to provide raw image file support for Rust applications.
 
 ## Overview
 
