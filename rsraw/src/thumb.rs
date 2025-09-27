@@ -1,6 +1,6 @@
 use std::fmt;
 
-use libraw_sys as sys;
+use rsraw_sys as sys;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ThumbFormat {

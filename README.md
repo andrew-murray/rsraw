@@ -1,16 +1,16 @@
-# LibRaw-rs
+# rsraw
 
 A comprehensive Rust wrapper for the LibRaw library, providing safe and idiomatic access to raw image processing capabilities. This workspace contains two main crates that work together to provide raw image file support for Rust applications.
 
 ## Overview
 
-LibRaw-rs provides Rust bindings for the LibRaw C++ library, enabling developers to read, process, and extract metadata from raw image files from various camera manufacturers. The library supports over 400 camera models and provides access to both raw image data and processed images.
+rsraw provides Rust bindings for the LibRaw C++ library, enabling developers to read, process, and extract metadata from raw image files from various camera manufacturers. The library supports over 400 camera models and provides access to both raw image data and processed images.
 
 ## Workspace Structure
 
 This workspace contains two main crates:
 
-### 1. `libraw-sys` - Low-level FFI bindings
+### 1. `rsraw-sys` - Low-level FFI bindings
 - **Purpose**: Direct FFI bindings to the LibRaw C++ library
 - **Features**: 
   - Auto-generated bindings using `bindgen`
@@ -18,7 +18,7 @@ This workspace contains two main crates:
   - Memory-safe wrappers for C structures
   - Build system integration with `cc` crate
 
-### 2. `libraw` - High-level Rust API
+### 2. `rsraw` - High-level Rust API
 - **Purpose**: Safe, idiomatic Rust interface for raw image processing
 - **Features**:
   - Memory-safe raw image handling
@@ -59,24 +59,24 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-libraw = { git = "https://github.com/your-username/libraw-rs.git", package = "libraw" }
+rsraw = { git = "https://github.com/your-username/rsraw.git" }
 ```
 
 Or add both crates if you need low-level access:
 
 ```toml
 [dependencies]
-libraw = { git = "https://github.com/your-username/libraw-rs.git", package = "libraw" }
-libraw-sys = { git = "https://github.com/your-username/libraw-rs.git", package = "libraw-sys" }
+rsraw = { git = "https://github.com/your-username/rsraw.git" }
+rsraw-sys = { git = "https://github.com/your-username/rsraw.git", package = "rsraw-sys" }
 ```
 
 Alternatively, you can specify a specific branch or commit:
 
 ```toml
 [dependencies]
-libraw = { git = "https://github.com/your-username/libraw-rs.git", package = "libraw", branch = "main" }
+rsraw = { git = "https://github.com/your-username/rsraw.git", branch = "main" }
 # or
-libraw = { git = "https://github.com/your-username/libraw-rs.git", package = "libraw", rev = "abc1234" }
+rsraw = { git = "https://github.com/your-username/rsraw.git", rev = "abc1234" }
 ```
 
 ## Quick Start
@@ -84,7 +84,7 @@ libraw = { git = "https://github.com/your-username/libraw-rs.git", package = "li
 ### Basic Raw Image Processing
 
 ```rust
-use libraw::{RawImage, BIT_DEPTH_16};
+use rsraw::{RawImage, BIT_DEPTH_16};
 
 // Load raw image from file
 let data = std::fs::read("image.ARW")?;
@@ -107,7 +107,7 @@ println!("Processed image: {}x{} pixels", processed.width(), processed.height())
 ### Metadata Extraction
 
 ```rust
-use libraw::RawImage;
+use rsraw::RawImage;
 
 let mut raw_image = RawImage::open(&data)?;
 
@@ -131,7 +131,7 @@ if gps.latitude[0] != 0.0 {
 ### Thumbnail Extraction
 
 ```rust
-use libraw::RawImage;
+use rsraw::RawImage;
 
 let mut raw_image = RawImage::open(&data)?;
 let thumbnails = raw_image.extract_thumbs()?;
@@ -189,8 +189,8 @@ The library supports raw formats from major camera manufacturers:
 
 ## Dependencies
 
-- **libraw-sys**: `libc`, `cc`, `bindgen`
-- **libraw**: `libraw-sys`, `chrono`, `tracing`, `serde`
+- **rsraw-sys**: `libc`, `cc`, `bindgen`
+- **rsraw**: `rsraw-sys`, `chrono`, `tracing`, `serde`
 
 ## Building
 

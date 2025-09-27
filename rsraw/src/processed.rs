@@ -4,7 +4,7 @@ use std::{
     slice,
 };
 
-use libraw_sys as sys;
+use rsraw_sys as sys;
 
 use crate::raw::{BitDepth, BIT_DEPTH_16, BIT_DEPTH_8};
 

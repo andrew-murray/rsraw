@@ -1,7 +1,7 @@
 use std::borrow::Cow;
 
 use chrono::{DateTime, Local, TimeZone};
-use libraw_sys as sys;
+use rsraw_sys as sys;
 
 use crate::{
     err::{Error, Result},
@@ -238,7 +238,7 @@ pub struct FullRawInfo {
 mod tests {
     use std::path::PathBuf;
 
-    use libraw_sys::{
+    use rsraw_sys::{
         LibRaw_camera_mounts_LIBRAW_MOUNT_Nikon_Z, LibRaw_camera_mounts_LIBRAW_MOUNT_Sony_E,
     };
 

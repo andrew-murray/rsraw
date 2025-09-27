@@ -1,6 +1,6 @@
 use std::fmt::{self, Display};
 
-use libraw_sys as sys;
+use rsraw_sys as sys;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Mounts(sys::LibRaw_camera_mounts);

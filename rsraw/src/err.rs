@@ -3,7 +3,7 @@ use std::{
     fmt::{self, Display, Formatter},
 };
 
-use libraw_sys as sys;
+use rsraw_sys as sys;
 
 pub type Result<T> = std::result::Result<T, Error>;
 

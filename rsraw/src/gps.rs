@@ -1,4 +1,4 @@
-use libraw_sys as sys;
+use rsraw_sys as sys;
 
 #[derive(Debug, Clone, Copy, Default, PartialEq, serde::Serialize, serde::Deserialize)]
 pub struct GpsInfo {
