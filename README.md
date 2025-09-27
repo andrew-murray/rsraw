@@ -61,18 +61,18 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rsraw = { git = "https://github.com/hexilee/rsraw.git" }
+rsraw = "0.1"
 ```
 
 Or add both crates if you need low-level access:
 
 ```toml
 [dependencies]
-rsraw = { git = "https://github.com/hexilee/rsraw.git" }
-rsraw-sys = { git = "https://github.com/hexilee/rsraw.git", package = "rsraw-sys" }
+rsraw = "0.1"
+rsraw-sys = "0.1"
 ```
 
-Alternatively, you can specify a specific branch or commit:
+Alternatively, you can specify a specific branch or commit by git:
 
 ```toml
 [dependencies]
