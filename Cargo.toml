@@ -1,0 +1,7 @@
+[workspace]
+members = ["libraw", "libraw-sys"]
+
+resolver = "2"
+
+[profile.dev]
+opt-level = 2
