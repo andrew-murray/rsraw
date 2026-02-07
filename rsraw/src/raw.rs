@@ -181,6 +181,22 @@ impl RawImage {
         }
     }
 
+    /// use the camera's white balance (where possible) [recommended]
+    pub fn set_use_camera_wb(&mut self, enable: bool) {
+        unsafe {
+            (*self.raw_data).params.use_camera_wb = if enable { 1 } else { 0 };
+        }
+    }
+
+    /// enabled by default
+    pub fn set_use_camera_matrix(&mut self, enable: bool) {
+        unsafe {
+            // note the changelog suggests 3 is the right number
+            // imgdata.params.use_camera_matrix is now ON by default. Set it to 3 if you want
+            (*self.raw_data).params.use_camera_matrix = if enable { 3 } else { 0 };
+        }
+    }
+
     pub fn process<const D: BitDepth>(&mut self) -> Result<ProcessedImage<D>> {
         debug_assert!(D == BIT_DEPTH_8 || D == BIT_DEPTH_16);
         unsafe { (*self.raw_data).params.output_bps = D as i32 };
