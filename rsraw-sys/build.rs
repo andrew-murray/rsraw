@@ -111,7 +111,6 @@ fn build(out_dir: impl AsRef<Path>) {
     libraw.flag_if_supported("-Wno-unused-result");
     libraw.flag_if_supported("-Wno-format-overflow");
 
-    libraw.static_flag(true);
     libraw.compile("raw");
 
     println!(
