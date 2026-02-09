@@ -14,6 +14,8 @@ fn build(out_dir: impl AsRef<Path>) {
         // when building libraw statically with msvc
         // the dll build is the default with msvc
         libraw.define("LIBRAW_NODLL", None);
+        libraw.define("LIBRAW_USE_OPENMP", "1");
+        libraw.flag("/openmp");
     }
     else
     {
